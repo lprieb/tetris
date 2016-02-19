@@ -1,19 +1,6 @@
-/* This is an ellaboration of tetris from scratch. It makes use of the gfx library developed by Prof. Doug Thain and
- * modified by Prof. Ramzi Bualuan
- * This tetris implementation was developed by Luis Prieb (lprieb@nd.edu) and Emily Anne Park (epark3@nd.edu)
- * Created on Dec 13, 2015
- * Last Updated Jan 15, 2016
- */
-
-
-#include "gfx5.h"
+// This file contains the main file and the function that actually runs the game
+ 
 #include "tetris.h"
-#include <sys/time.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include <time.h>
-#include <stdlib.h>
-
 
 int main(void)
 {

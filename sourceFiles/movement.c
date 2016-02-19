@@ -111,7 +111,7 @@ _Bool move_mino_down(t_element board[21][10], tetrimino* in_game)
 	return placed;
 }
 
-_Bool check_mino(t_element board[21][10], tetrimino* in_game, board_cor mino)
+_Bool check_mino(t_element board[21][10], tetrimino* in_game, board_cor mino) // Checks a partiluar mino of a tetrimino to see if it is allowed to move in the desired direction.
 {
 	_Bool result;
 

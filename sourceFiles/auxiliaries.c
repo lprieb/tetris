@@ -2,7 +2,7 @@
 
 #include "tetris.h"
 
-_Bool swap(t_element board[21][10], enum type *swap_mino, tetrimino* in_game, _Bool* there_is_swap)
+_Bool swap(t_element board[21][10], enum type *swap_mino, tetrimino* in_game, _Bool* there_is_swap) // Swap tetrimino in game with tetrimino in Hold
 {
     enum type temp_mino;
     _Bool gameover;
@@ -26,7 +26,7 @@ _Bool swap(t_element board[21][10], enum type *swap_mino, tetrimino* in_game, _B
 
 }
 
-void clear_mino(t_element board[21][10], tetrimino* in_game)
+void clear_mino(t_element board[21][10], tetrimino* in_game) // Clear a tetrimino from the board before moving
 {
 	in_game->mino1->color = black;
 	in_game->mino2->color = black;
@@ -39,7 +39,7 @@ void clear_mino(t_element board[21][10], tetrimino* in_game)
 	in_game->c_mino->occupied = 0;
 }
 
-void color_mino(t_element board[21][10], tetrimino* in_game)
+void color_mino(t_element board[21][10], tetrimino* in_game) // Color the tetrimino in the game after moving
 {
 	enum color current;
 	
@@ -56,12 +56,14 @@ void color_mino(t_element board[21][10], tetrimino* in_game)
 	in_game->c_mino->occupied = 1;
 }
                           
-_Bool clear_lines(t_element board[21][10], _Bool* back_to_back, int* score, int* lines_tot, int level)
+_Bool clear_lines(t_element board[21][10], _Bool* back_to_back, int* score, int* lines_tot, int level) // 
 {
 	int row, col, lines;
 	_Bool update_score, to_clear;
   	lines = 0;
   	update_score = 0;
+	
+	// Check if a line must be clear
   	for(row = 1 ; row <= 20; row++)
     {
       	to_clear = 1;
@@ -79,6 +81,8 @@ _Bool clear_lines(t_element board[21][10], _Bool* back_to_back, int* score, int*
             lines++;
         }
     }
+	
+	// Update Score depending on the number of lines cleared
   	switch(lines)
   	{
   	    case 1:
@@ -91,7 +95,10 @@ _Bool clear_lines(t_element board[21][10], _Bool* back_to_back, int* score, int*
   	        *score = *score + (500*level);
   	        break;
   	}
-  	if(*back_to_back)
+	
+	// Dealing with the case of back-to-back tetris
+	
+  	if(*back_to_back) // Deals with repetitive back-to- backs
   	{
   	    if(lines == 4)
   	    {
@@ -101,8 +108,8 @@ _Bool clear_lines(t_element board[21][10], _Bool* back_to_back, int* score, int*
   	    {
   	        back_to_back = 0;
   	    }
-  	}
-  	else
+  	} 
+  	else // Deals with initial back-to-back
   	{
   	    if(lines == 4)
   	    {
@@ -115,7 +122,7 @@ _Bool clear_lines(t_element board[21][10], _Bool* back_to_back, int* score, int*
   	return update_score;
 }
 
-void clear_the_line(t_element board[21][10], int row)
+void clear_the_line(t_element board[21][10], int row) // Function that performs that actual clearing of the line
 {
   	// Change the row to black
   	int c, r;

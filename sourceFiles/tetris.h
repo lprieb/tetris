@@ -2,7 +2,7 @@
  * modified by Prof. Ramzi Bualuan
  * This tetris implementation was developed by Luis Prieb (lprieb@nd.edu) and Emily Anne Park (epark3@nd.edu)
  * Created on Dec 13, 2015
- * Last Updated Jan 18, 2016
+ * Last Updated Jan 19, 2016
  */
 
 // Includes
