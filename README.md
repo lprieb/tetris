@@ -12,7 +12,7 @@ See included License file
 
 Contacts
 --------
-- [Luis Prieb](<lprieb@nd.edu>)
-- [Emily Park](<epark3@nd.edu>)
+- Luis Prieb <lprieb@nd.edu>
+- Emily Park <epark3@nd.edu>
 
 
