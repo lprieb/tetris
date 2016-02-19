@@ -1,3 +1,18 @@
+/* This is an ellaboration of tetris from scratch. It makes use of the gfx library developed by Prof. Doug Thain and
+ * modified by Prof. Ramzi Bualuan
+ * This tetris implementation was developed by Luis Prieb (lprieb@nd.edu) and Emily Anne Park (epark3@nd.edu)
+ * Created on Dec 13, 2015
+ * Last Updated Jan 18, 2016
+ */
+
+// Includes
+#include "gfx5.h"
+#include <sys/time.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdlib.h>
+
 // MACROS
 #define BOX_SIZE 20 // block size
 #define FONT "-sony-fixed-medium-r-normal--24-230-75-75-c-120-jisx0201.1976-0" // Change this font if necessary
@@ -76,7 +91,7 @@ _Bool move_mino_down(t_element board[21][10], tetrimino* in_game);
 void display_score(int score);
 void display_level(int level);
 _Bool swap(t_element board[21][10], enum type *swap_mino, tetrimino* in_game, _Bool* there_is_swap); // Swaps current tetrimino with the one on hold
-																																				 // If there is no mino in hold, it will just store the tetrimino
-void draw_hold(_Bool there_is_hold, enum type swap_mino);
+																								     // If there is no mino in hold, it will just store the tetrimino
+void draw_hold(_Bool there_is_hold, enum type swap_mino); // Draws the tetrimino on the hold square
 void my_gfx_cleararea(int x, int y, int w, int h); // the gfx library's gfx_cleararea() function was not working properly, so made our own
 
